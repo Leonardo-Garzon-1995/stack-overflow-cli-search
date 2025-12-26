@@ -56,7 +56,7 @@ function displayResults(results, searchText) {
 
     console.log(chalk.green("╔" + "═".repeat(70) + "╗"));
     console.log(chalk.green("║ ") + " ".padEnd(69) + chalk.green("║"));
-    console.log(chalk.green("║ ") + text.padEnd(69) + chalk.green("║"));
+    console.log(chalk.green("║ ") + text.padEnd(79) + chalk.green("║"));
     console.log(chalk.green("║ ") + " ".padEnd(69) + chalk.green("║"));
     console.log(chalk.green("╚" + "═".repeat(70) + "╝"));
     console.log("")

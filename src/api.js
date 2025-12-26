@@ -1,4 +1,5 @@
 // Stack Overflow API logic
+const searchUrl = new URL('https://api.stackexchange.com/2.3/search/advanced')
 
 async function fetchInfo(url) {
     const res = await fetch(url)
@@ -16,5 +17,6 @@ async function fetchInfo(url) {
 }
 
 export {
-    fetchInfo
+    fetchInfo,
+    searchUrl
 }

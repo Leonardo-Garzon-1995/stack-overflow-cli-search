@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {fetchInfo} from "../src/api.js"
+import {fetchInfo, searchUrl} from "../src/api.js"
 import { displayResults } from "../src/formatter.js"
 import { parseArgs } from "../src/parser.js"
 
@@ -11,11 +11,6 @@ const argsObj = {
     tags: args.tags,
     limit: Number(args.limit) || 10
 }
-
-// -----------------------------------------------------------------
-const searchUrl = new URL('https://api.stackexchange.com/2.3/search/advanced')
-
-
 
 searchUrl.search = new URLSearchParams({
     order: 'desc',
