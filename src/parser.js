@@ -18,7 +18,6 @@ function parseArgs(args) {
             result._.push(arg)
         }
     }
-
     return result
 }
 
