@@ -13,11 +13,11 @@ const argsObj = {
 }
 
 // -----------------------------------------------------------------
-const url = new URL('https://api.stackexchange.com/2.3/search/advanced')
+const searchUrl = new URL('https://api.stackexchange.com/2.3/search/advanced')
 
 
 
-url.search = new URLSearchParams({
+searchUrl.search = new URLSearchParams({
     order: 'desc',
     sort: 'relevance',
     q: argsObj.searchText,
@@ -29,8 +29,8 @@ url.search = new URLSearchParams({
 
 async function extracFields(url, limit) {
     const res = await fetchInfo(url)
-
     const results = []
+    
 
     for (let i = 0; i < Math.min(limit, res.length); i++) {
         results[i] = {
@@ -49,4 +49,6 @@ async function extracFields(url, limit) {
 console.log(argsObj)
 console.log('\x1b[34m----------------------------------------------------------------------------------\x1b[0m')
 
-extracFields(url, argsObj.limit).then(res => displayResults(res, argsObj.searchText))
+extracFields(searchUrl, argsObj.limit)
+    .then(res => displayResults(res, argsObj.searchText))
+    .catch(err => console.error(err))

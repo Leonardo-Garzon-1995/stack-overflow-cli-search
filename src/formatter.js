@@ -61,6 +61,8 @@ function displayResults(results, searchText) {
     console.log(chalk.green("╚" + "═".repeat(70) + "╝"));
     console.log("")
 
+    if (!results.length) console.log(chalk.red('No results found, Try something else!'))
+
 
     results.forEach((item, index) => {
         console.log(formatResult(item, index + 1))
