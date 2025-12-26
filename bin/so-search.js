@@ -12,13 +12,26 @@ const argsObj = {
     limit: Number(args.limit) || 10
 }
 
-searchUrl.search = new URLSearchParams({
+if (!argsObj.searchText) {
+    console.error("Please provide a search query")    
+    process.exit(1)
+} 
+
+function buildSearchUrl(searchText, tags) {
+    const url = new URL(searchUrl)
+
+    url.search = new URLSearchParams({
     order: 'desc',
     sort: 'relevance',
-    q: argsObj.searchText,
-    tagged: argsObj.tags ? argsObj.tags.join(" ") : "",
+    q: searchText,
+    tagged: tags ? tags.join(" ") : "",
     site: 'stackoverflow'
-})
+    })
+
+    return url
+}
+
+
 
 // -----------------------------------------------------------------------------
 
@@ -40,10 +53,12 @@ async function extracFields(url, limit) {
     return results
 }
 
+// -----------------------------------------------------------------------------
+const search_url = buildSearchUrl(argsObj.searchText, argsObj.tags)
 
 console.log(argsObj)
 console.log('\x1b[34m----------------------------------------------------------------------------------\x1b[0m')
 
-extracFields(searchUrl, argsObj.limit)
+extracFields(search_url, argsObj.limit)
     .then(res => displayResults(res, argsObj.searchText))
     .catch(err => console.error(err))

@@ -1,5 +1,5 @@
 // Stack Overflow API logic
-const searchUrl = new URL('https://api.stackexchange.com/2.3/search/advanced')
+const searchUrl = 'https://api.stackexchange.com/2.3/search/advanced'
 
 async function fetchInfo(url) {
     const res = await fetch(url)
