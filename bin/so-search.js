@@ -12,13 +12,12 @@ const argsObj = {
     limit: Number(args.limit) || 10
 }
 
-if (!argsObj.searchText) {
-    console.error("Please provide a search query")    
-    process.exit(1)
-} 
+
 
 function buildSearchUrl(searchText, tags) {
     const url = new URL(searchUrl)
+
+    if (!searchText) console.log("Please provide a valid query")
 
     url.search = new URLSearchParams({
     order: 'desc',

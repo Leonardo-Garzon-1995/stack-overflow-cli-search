@@ -54,11 +54,11 @@ function displayResults(results, searchText) {
     // Global header
     const text = `Results for: ${chalk.gray(searchText)}`
 
-    console.log(chalk.green("╔" + "═".repeat(70) + "╗"));
-    console.log(chalk.green("║ ") + " ".padEnd(69) + chalk.green("║"));
-    console.log(chalk.green("║ ") + text.padEnd(79) + chalk.green("║"));
-    console.log(chalk.green("║ ") + " ".padEnd(69) + chalk.green("║"));
-    console.log(chalk.green("╚" + "═".repeat(70) + "╝"));
+    console.log(chalk.cyan("╔" + "═".repeat(70) + "╗"));
+    console.log(chalk.cyan("║ ") + " ".padEnd(69) + chalk.cyan("║"));
+    console.log(chalk.cyan("║ ") + text.padEnd(79) + chalk.cyan("║"));
+    console.log(chalk.cyan("║ ") + " ".padEnd(69) + chalk.cyan("║"));
+    console.log(chalk.cyan("╚" + "═".repeat(70) + "╝"));
     console.log("")
 
     if (!results.length) console.log(chalk.red('No results found, Try something else!'))
